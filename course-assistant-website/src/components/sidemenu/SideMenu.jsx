@@ -4,7 +4,7 @@ import { IoHome, IoSchool, IoChatbox, IoPerson, IoHelpCircle, IoArrowBackCircle,
 import { FaRobot } from "react-icons/fa6";
 import './SideMenu.css';
 
-const SideMenu = () => {
+const SideMenu = ({token, onLogout}) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const handleToggleSidebar = () => {
@@ -51,6 +51,11 @@ const SideMenu = () => {
           <li>
             <NavLink to="/logout" activeclassname="active">
               <IoArrowBackCircle /> <span className="link-text">Logout</span>
+              {token && (
+        <button type="button" onClick={onLogout}>
+          Sign Out
+        </button>
+      )}
             </NavLink>
           </li>
         </ul>

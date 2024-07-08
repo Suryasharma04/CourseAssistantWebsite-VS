@@ -1,29 +1,3 @@
-// import React from 'react';
-// import SectionHeading from '../components/heading/sectionHeading';
-
-// const BomberBuddy = () => {
-//   return (
-//     <>
-//       <SectionHeading title="Bomber Buddy" />
-//       <div>
-//         new text.
-
-
-
-
-        
-//       </div>
-//     </>
-//   );
-// };
-
-// export default BomberBuddy;
-
-
-
-
-////
-
 
 import React from 'react'
 import "./css/BomberBuddy.css"

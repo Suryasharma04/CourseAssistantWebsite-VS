@@ -6,6 +6,8 @@ import Sidebar from './components/sidemenu/SideMenu';
 import Home from './pages/Home';
 import Course from './pages/Course';
 import BomberBuddy from './pages/BomberBuddy';
+// import Navigation from "./Navigation";
+
 import Discussion from './pages/Discussion';
 import Profile from './pages/Profile';
 import CardDetail from './pages/CardDetail';
@@ -19,8 +21,6 @@ export default function App() {
   const navigate = useNavigate();
 
   const handleLogin = async (name, pass) => {
-    /* This is a regular expression that matches if a string */
-    /* is NOT a lower/upper case letter or a number */
     const validLett = /^[a-zA-Z0-9]+$/;
 
       console.log("handleLogin, name is " + name + " and valid is " + validLett.test(name));
@@ -35,7 +35,7 @@ export default function App() {
       const newToken = await makeAuth(name, pass);
       if (newToken[0].full_name !== "fail"){
         setToken(newToken[0].account);
-        navigate('/assistant1');
+        navigate('/home');
       }
       else{
         setToken("fail");
@@ -50,30 +50,43 @@ export default function App() {
   return (
     <AuthContext.Provider value={token}>
 
-
     <div className="app-container">
-    <Sidebar />
+    <Sidebar token = {token} onLogout = {handleLogout} />
+    {/* <Sidebar /> */}
     <div className="main-content">
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/course" element={ <Course onLogin={handleLogin} /> } />
-        <Route path="/bomber-buddy" element={<BomberBuddy />} />
-        <Route path="/discussion" element={<Discussion />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/card/:id" element={<CardDetail />} />
-        
-        <Route path="/bomber-buddy" element={
+      
+    <Routes>
+          <Route path="/" element={ <Home token = {token} onLogin={handleLogin}/>  } />
+          <Route path="/home" element={ <Home token = {token} onLogin={handleLogin} /> } />
+          
+          <Route path="/course/" element={<Course />}>
+            <Route path="bomber-buddy" element={<BomberBuddy />} />
+            <Route path="discussion" element={<Discussion />} />
+          </Route>
+
+          <Route path="/bomber-buddy" element={
               <ProtectedRoute value = {token}>
-                <BomberBuddy /> 
+                <BomberBuddy account={token} aType={"COMP171"} /> 
               </ProtectedRoute>
             }
           />
+          <Route path="/help" element={
+              <ProtectedRoute value = {token}>
+                <BomberBuddy account={token} aType={"COMP210"} /> 
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/profile" element={
+              <ProtectedRoute value = {token}>
+                <Profile /> 
+              </ProtectedRoute>
+            }
+          />
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
 
-
-      </Routes>
     </div>
   </div>
-
   </AuthContext.Provider>
   );
 }
@@ -85,3 +98,4 @@ const NoMatch = () => (
     Page not found.
   </>
   );
+
