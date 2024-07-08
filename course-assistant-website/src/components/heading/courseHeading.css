@@ -1,0 +1,17 @@
+
+.courseHeading h2{
+    /* margin-top: 2rem; */
+    /* margin: 2rem 0 2rem 0; */
+    margin: 1rem 0 0 1rem;
+    color: #003A70;
+    font-weight: 600;
+    font-size: 30px;
+    text-align: left;
+}
+
+.courseHeading p{
+    font-weight: 300;
+    font-size: 20px;   
+    color: #949494;
+    margin: 1rem 0 0 1rem;
+}

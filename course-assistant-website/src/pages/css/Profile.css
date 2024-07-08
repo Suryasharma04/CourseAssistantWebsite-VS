@@ -1,0 +1,87 @@
+/* body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+   */
+   
+ .profile-container {
+    display: flex;
+    align-items: center;
+    height: 550px; 
+    width: 850px; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+  
+ .profile-icon {
+    position: relative;
+    font-size: 300px; /* Increase the size of the icon */
+    margin-left: -60px; /* Adjust spacing as needed */
+ }
+  
+ .profile-info {
+    position: relative;
+    flex-grow: 1;
+    margin-bottom: 100px;
+ }
+ .profile-edit {
+    border-radius: 10px;
+    position: relative;
+    border: none;
+    top: -250px;
+    left: 0px;
+    padding: 10px; 
+    color:#fff;
+    background: #003A70;
+    margin-left: 20px;
+    cursor: pointer; 
+    transition: color 0.3s, transform 0.3s; 
+ 
+ }
+ .profile-profile{
+    position: relative;
+    top: -250px;
+    left: 150px;
+ }
+  
+ .profile-info p {
+    margin: 0;
+ }
+  
+ 
+ .profile-username {
+    margin-bottom: 20px; 
+    width: 250px;
+ }
+ 
+ .profile-logout{
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    bottom: -180px;
+    right: 200px;
+    font-size: medium;
+    color:#fff;
+    background: #003A70;
+    padding: 10px;
+    cursor: pointer; 
+    transition: color 0.3s, transform 0.3s; 
+   
+ }
+ 
+ .profile-logout:hover{
+    transform: scale(1.1); 
+    box-shadow: inset;
+ } 
+ 
+ .profile-edit:hover{
+    transform: scale(1.1); 
+    box-shadow: inset;
+ } 
+  
+  

@@ -1,0 +1,96 @@
+
+.discussion-page-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    text-align: center;
+ }
+ .discussion-page-header{
+    position: absolute;
+    top: 0;
+    padding: 40px;
+ }
+ .discussion-page-message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; 
+  }
+  
+  .discussion-page-themessage {
+    flex: 1;
+    padding: 10px; 
+    font-size: 20px; 
+    border: none; 
+    border-radius: 50px; 
+    position: absolute;
+    left: 6%;
+    height: 36px;
+    outline: none;
+    width: 83%;
+    background-color: #F9F9F9;
+  }
+  
+ .discussion-page-icon {
+    font-size: 200px;
+    color: #003A70;
+    position: absolute;
+    top: 120px;
+    z-index: 10; 
+ }
+ 
+ .discussion-page-message {
+    background-color: #F9F9F9;
+    width: 50%;
+    height: 60px;
+    border-radius: 50px;
+    position: absolute; 
+    bottom: 30%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+ 
+ .discussion-page-submit p {
+    display: flex; 
+    align-items: center; 
+}
+ 
+ .discussion-page-button {
+    order: 2;
+    display: flex;
+    position: absolute;
+    bottom: 150px; 
+    justify-content: space-between;
+    margin-top: 37px;
+    gap: 100px; 
+}
+ 
+ .discussion-page-icon-1{
+    font-size: 35px;
+    color: #003A70;
+    margin-left: 15px;
+    margin-right: 10px; 
+    margin-top: 0px;
+    padding-right: 10px; 
+}
+ 
+ .discussion-page-submit {
+    font-size: 16px; 
+    border-radius: 50px; 
+    width: 150px; 
+    height: 40px; 
+    background-color: #003A70; 
+    color: white; 
+    border: none;    
+    margin-top: 70%;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.3s;  
+}
+ 
+ .discussion-page-submit:hover {
+    background-color: #3BD4C0; 
+    transform: scale(1.05); 
+}
