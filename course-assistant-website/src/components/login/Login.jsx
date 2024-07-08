@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 import { Link, useNavigate, Route } from 'react-router-dom'; // Import Link from react-router-dom
 import './Login.css';
+import { AuthContext } from '../../authContext';
 
-const Login = ({onLogin}) => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const { onLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const auth = () => {
     const val = document.getElementById('account').value; 
@@ -15,11 +18,9 @@ const Login = ({onLogin}) => {
     onLogin(val, pass);
   }
 
-  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
 
     if (!validateEmail(email)) {
       setEmailError('Invalid email format');
@@ -29,15 +30,10 @@ const Login = ({onLogin}) => {
     }
 
     // Simulate login and navigate
-    // if (email === 'test@example.com' && password === 'password') {
-    //    navigate('/course');
-    //   <Route path="/bomber-buddy" element={<BomberBuddy />} />
-    // }
-
-    // Optional: Reset form fields after submission
-    // setEmail('');
-    // setPassword('');
+    onLogin(email); // Assuming email is used as a token for simplicity
+    navigate('/home');
   };
+
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
