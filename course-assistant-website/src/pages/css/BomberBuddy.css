@@ -2,26 +2,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
     text-align: center;
  }
  
  .bomberbuddy-container h1 {
-    margin: auto; /* Center the text horizontally and vertically */
-    transform: translateY(-40%); /* Adjust this value to move the text higher */
+    margin: auto; 
+    transform: translateY(-40%);
  }
  
- .bomberbuddy-message {
+.bomberbuddy-message {
     background-color: #F9F9F9;
+    display: flex;
+    /* align-items: center;  */
     width: 50%;
     height: 60px;
     border-radius: 50px;
-    position: absolute; /* Position the element absolutely */
-    bottom: 30px; /* Positions the element 20px from the bottom */
-    left: 50%; /* Centers the element horizontally */
-    transform: translateX(-50%); /* Adjusts the element to be truly centered */
- }
- 
+    position: absolute; 
+    bottom: 30px; 
+    padding: 0 15px 0 15px;
+}
  
  .bomberbuddy-bot{
     font-size: 100px;
@@ -33,44 +33,45 @@
     align-items: center; 
  }
  
- 
  .bomberbuddy-themessage {
-    flex: 1; /* Take remaining space */
-    padding: 10px; /* Adjust padding as needed */
-    font-size: 20px; /* Adjust font size */
-    border: none; /* Example border style */
-    border-radius: 50px; /* Example border radius */
+    flex: 1;
+    padding: 10px; 
+    font-size: 20px; 
+    width: 80%;
+    border: none; 
+    border-radius: 50px; 
     position: absolute;
-    left: 6%;
+    /* left: 6%; */
     top: 10%;
-    width: 83%;
     outline: none;
     background-color:transparent;
- }
- 
+    /* margin: 0 10px; */
+}
  
  .bomberbuddy-icon-1{
     font-size: 35px;
     color: #003A70;
-    margin-left: 15px;
-    margin-right: 10px; /* Adjust this value to control the space between the paperclip and the text */
-    margin-top: 10px;
-    padding-right: 10px; 
+    cursor: pointer;
  }
  
  .bomberbuddy-icon-2{
     font-size: 35px;
     color: #003A70;
-    margin-right: 25px;
-    margin-left: auto; /* Pushes the circle icon to the far right */
-    padding-left: 30px; /* Add some padding to ensure the circle is further right from the text */
+    margin-right: auto; 
+    padding-left: 800px;
     margin-top: 10px;
     cursor: pointer; 
-    transition: color 0.3s, transform 0.3s; /* Smooth transition for color and transform */
+    transition: color 0.3s, transform 0.3s; 
  }
  
  .bomberbuddy-icon-2:hover{
     color: #005BB5;
-    transform: scale(1.1); /* Slightly increase size on hover */
+    /* transform: scale(1.1); Slightly increase size on hover */
  }
  
+ /* Responsive adjustments */
+@media (max-width: 768px) {
+   .bomberbuddy-message {
+       width: 80%;
+   }
+}

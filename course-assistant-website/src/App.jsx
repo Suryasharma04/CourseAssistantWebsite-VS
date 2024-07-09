@@ -92,15 +92,6 @@ import ProtectedRoute from "./Protected";
 //   );
 // }
 
-// // Page not found
-// const NoMatch = () => (
-//   <>
-//     <h1>404</h1>
-//     Page not found.
-//   </>
-//   );
-
-
 export default function App() {
   return (
     <AuthProvider>

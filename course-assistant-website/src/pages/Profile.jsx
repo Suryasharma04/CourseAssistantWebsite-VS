@@ -20,6 +20,7 @@ import { PiUserCircleThin } from "react-icons/pi";
 import { CiLogout } from "react-icons/ci";
 import { PiNotePencil } from "react-icons/pi";
 import { Link } from 'react-router-dom';
+import SectionHeading from '../components/heading/sectionHeading';
 
 
 const Profile = () => {
@@ -31,11 +32,11 @@ const Profile = () => {
 
  return (
    <div className='profile-container'>
+
        <div className='profile-profile'>
-       <h1>
-         Profile
-       </h1>
+       <SectionHeading title="Profile" />
      </div>
+
      <div className='profile-icon'>
        <PiUserCircleThin />  
      </div>  
@@ -44,6 +45,7 @@ const Profile = () => {
        <h2 className='profile-username'>
          Vanessa Sharma
        </h2>  
+
        <p>Email Address:</p> <br/>
        <p>Graduation Year:</p> <br/>
        <p>Personal Website:</p> <br/>
@@ -51,12 +53,14 @@ const Profile = () => {
        <p>LinkedIn:</p>
 
      </div> 
+     
      <button className='profile-logout'> <CiLogout />  Log Out</button> 
      <Link to="/editprofile">
      <button onClick={handleEditProfile} className='profile-edit'>
        <PiNotePencil /> Edit Profile
      </button>
      </Link>
+
    </div>
  );
 };
