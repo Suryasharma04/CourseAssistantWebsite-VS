@@ -7,7 +7,6 @@ async function ask(account, aType, quest){
                     'Content-Type': 'application/json'
                 },
 
-                //make sure to serialize your JSON body
                 body: JSON.stringify({
                     account: account,
                     aType: aType,
@@ -30,7 +29,7 @@ async function ask(account, aType, quest){
         else{
             val = ans;
         }
-        //console.log("doAsk is returning:\n\n" + val);
+        
         return val;
     } catch (error){
         console.log("ask Could not fetch: " + error);
