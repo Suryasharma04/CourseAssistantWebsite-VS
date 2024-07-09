@@ -1,15 +1,3 @@
-// import React from 'react';
-// import SectionHeading from '../components/heading/sectionHeading';
-
-// const Profile = () => {
-//   return (
-//     <>
-//     <SectionHeading title="Profile" />
-//     </>
-//   );
-// };
-
-// export default Profile;
 
 
 
