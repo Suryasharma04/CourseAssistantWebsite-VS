@@ -51,11 +51,7 @@ const SideMenu = ({token, onLogout}) => {
           <li>
             <NavLink to="/logout" activeclassname="active">
               <IoArrowBackCircle /> <span className="link-text">Logout</span>
-              {token && (
-        <button type="button" onClick={onLogout}>
-          Sign Out
-        </button>
-      )}
+    
             </NavLink>
           </li>
         </ul>

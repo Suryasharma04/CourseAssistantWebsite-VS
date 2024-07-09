@@ -110,40 +110,51 @@ export default function App() {
 }
 
 function MainApp() {
-  const { token, onLogout } = useContext(AuthContext);
+  const [ token, setToken ] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (name, pass) => {
     const validLett = /^[a-zA-Z0-9]+$/;
 
     if (!validLett.test(name) || !validLett.test(pass)) {
-      alert("Invalid username or password format");
+      alert("Invalid username or password format " + name + ", " + pass);
       return;
     }
 
     const newToken = await makeAuth(name, pass);
+    console.log("handlelogin newToken: " );
+    console.log(newToken);
     if (newToken[0].full_name !== "fail") {
-      onLogin(newToken[0].account);
+      setToken(newToken[0].account);
+      alert("Login got: " + newToken[0].account);
       navigate('/home');
     } else {
       alert("Login failed");
     }
   };
 
+  const handleLogout = () => {
+    setToken(null);
+    navigate('/');
+  };
+
   return (
     <div className="app-container">
-      <Sidebar token={token} onLogout={onLogout} />
+      <Sidebar token={token} onLogout={handleLogout} />
+     
       <div className="main-content">
         <Routes>
-          <Route path="/" element={<Login onLogin={handleLogin} />} />
-          <Route path="/home" element={<ProtectedRoute><Home token={token} /></ProtectedRoute>} />
-          <Route path="/course" element={<ProtectedRoute><Course /></ProtectedRoute>}>
-            <Route path="bomber-buddy" element={<BomberBuddy />} />
-            <Route path="discussion" element={<Discussion />} />
+          <Route path="/" element={<Home onLogin={handleLogin} />} />
+          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/home" element={<Login token={token} />} />
+          <Route path="/course" element={<ProtectedRoute value={ token }><Course /></ProtectedRoute>}>
+
+            {/* <Route path="bomber-buddy" element={<BomberBuddy />} />
+            <Route path="discussion" element={<Discussion />} /> */}
           </Route>
-          <Route path="/bomber-buddy" element={<ProtectedRoute><BomberBuddy /></ProtectedRoute>} />
-          <Route path="/help" element={<ProtectedRoute><BomberBuddy /></ProtectedRoute>} />
-          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/bomber-buddy" element={<ProtectedRoute value={ token }><BomberBuddy /></ProtectedRoute>} />
+          <Route path="/help" element= {<Home />} />
+          <Route path="/profile" element={<ProtectedRoute value={ token }><Profile /></ProtectedRoute>} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </div>

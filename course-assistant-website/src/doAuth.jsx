@@ -1,7 +1,7 @@
 
 async function makeAuth(name, pass){
     try{
-        const response = await fetch('http://20.169.159.21:21959/auth', {
+        const response = await fetch('http://20.169.159.21:21958/auth', {
               method: "post",
                 headers: {
                     'Accept': 'application/json',

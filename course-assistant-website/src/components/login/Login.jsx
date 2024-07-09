@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 import { Link, useNavigate, Route } from 'react-router-dom'; // Import Link from react-router-dom
 import './Login.css';
 import { AuthContext } from '../../authContext';
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const { onLogin } = useContext(AuthContext);
+  // const { onLogin } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const auth = () => {
@@ -20,25 +20,26 @@ const Login = () => {
 
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    console.log("in hadleSubmit");
+  }
+  //   e.preventDefault();
 
-    if (!validateEmail(email)) {
-      setEmailError('Invalid email format');
-      return;
-    } else {
-      setEmailError('');
-    }
+  //   if (!validateEmail(email)) {
+  //     setEmailError('Invalid email format');
+  //     return;
+  //   } else {
+  //     setEmailError('');
+  //   }
 
-    // Simulate login and navigate
-    onLogin(email); // Assuming email is used as a token for simplicity
-    navigate('/home');
-  };
+  //   onLogin(email); 
+  //   navigate('/home');
+  // };
 
 
-  const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  };
+  // const validateEmail = (email) => {
+  //   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //   return re.test(email);
+  // };
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -53,7 +54,7 @@ const Login = () => {
           <label htmlFor="account">Email</label>
           <div className="email-container">
             <input
-              type="email"
+              // type="email"
               id="account"
               name="account"
               value={email}
@@ -86,7 +87,7 @@ const Login = () => {
             Forgot password?
           </div>
         </div>
-        <button type="submit" onClick={() => auth()}>Login</button>
+        <button type="button" onClick={() => auth()}>Login</button>
         <div className="already-signup">
           Don't have an account? <Link to="/signup">Sign Up</Link>
         </div>
