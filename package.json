@@ -4,5 +4,8 @@
     "react-router-dom": "^6.24.0",
     "react-spinners": "^0.14.1",
     "typewriter-effect": "^2.21.0"
+  },
+  "devDependencies": {
+    "vite": "^5.3.3"
   }
 }
