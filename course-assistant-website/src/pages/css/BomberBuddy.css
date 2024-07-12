@@ -5,73 +5,73 @@
     height: 100vh;
     text-align: center;
  }
- 
- .bomberbuddy-container h1 {
-    margin: auto; 
-    transform: translateY(-40%);
- }
- 
+
+.bomberbuddy-container h1{
+   color: #003A70;
+   font-size: 30px;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
 .bomberbuddy-message {
-    background-color: #F9F9F9;
     display: flex;
-    /* align-items: center;  */
-    width: 50%;
-    height: 60px;
-    border-radius: 50px;
     position: absolute; 
     bottom: 30px; 
-    padding: 0 15px 0 15px;
+    /* padding: 0 15px 0 15px; */
 }
  
  .bomberbuddy-bot{
-    font-size: 100px;
+    font-size: 60px;
     color: #003A70;
  }
- 
-.bomberbuddy-text p {
-    display: flex; 
-    align-items: center; 
- }
- 
- .bomberbuddy-themessage {
-    flex: 1;
-    padding: 10px; 
-    font-size: 20px; 
-    width: 80%;
-    border: none; 
-    border-radius: 50px; 
-    position: absolute;
-    /* left: 6%; */
-    top: 10%;
-    outline: none;
-    background-color:transparent;
-    /* margin: 0 10px; */
+
+ .bomberbuddy-icon-1:hover{
+   color: #005BB5;
 }
- 
- .bomberbuddy-icon-1{
-    font-size: 35px;
-    color: #003A70;
-    cursor: pointer;
- }
- 
- .bomberbuddy-icon-2{
-    font-size: 35px;
-    color: #003A70;
-    margin-right: auto; 
-    padding-left: 800px;
-    margin-top: 10px;
-    cursor: pointer; 
-    transition: color 0.3s, transform 0.3s; 
- }
  
  .bomberbuddy-icon-2:hover{
     color: #005BB5;
-    /* transform: scale(1.1); Slightly increase size on hover */
+ }
+
+.bomberbuddy-textarea-wrapper {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: space-between; 
+   gap: 1.5rem;
  }
  
- /* Responsive adjustments */
-@media (max-width: 768px) {
-   .bomberbuddy-message {
-       width: 80%;
-   }
+ .bomberbuddy-textarea {
+   width: 90%; 
+   min-width: 60rem; 
+   max-height: 10rem;
+   overflow: auto; 
+   resize: none; 
+   box-sizing: border-box; 
+   outline: none; 
+   padding: 20px 40px 20px 40px;
+   border-radius: 30px;
+   font-size: 18px; 
+   background-color: white;
+   color: black; 
 }
+ 
+ .bomberbuddy-icon-1 {
+   position: absolute;
+   color: #003A70;
+   left: 10px;
+   cursor: pointer;
+   font-size: 25px;
+   transition: color 0.3s, transform 0.3s; 
+ }
+ 
+ .bomberbuddy-icon-2 {
+   position: absolute;
+   color: #003A70;
+   right: 10px;
+   cursor: pointer;
+   font-size: 30px;
+   padding: 10px;
+   transition: color 0.3s, transform 0.3s; 
+ }
+ 
+ 
