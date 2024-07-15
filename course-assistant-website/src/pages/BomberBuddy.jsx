@@ -1,15 +1,14 @@
-import { React, useState, useRef, useEffect } from 'react';
+// import { React, useState, useRef, useEffect } from 'react';
+// import "./css/BomberBuddy.css";
+// import { FaRobot, FaCircleArrowUp } from "react-icons/fa6";
+// import Typewriter from 'typewriter-effect';
+
+import React, { useState, useRef, useEffect } from 'react';
 import "./css/BomberBuddy.css";
 import { FaRobot, FaCircleArrowUp } from "react-icons/fa6";
 import Typewriter from 'typewriter-effect';
 import { BsPaperclip } from "react-icons/bs";
 import ask from "../doAsk";
-
-const override = {
-  display: "block",
-  margin: "0 auto",
-  borderColor: "red",
-};
 
 const BomberBuddy = ({ account, aType }) => {
   const [resp, setResp] = useState(null);
@@ -20,13 +19,14 @@ const BomberBuddy = ({ account, aType }) => {
 
   const askAssistant = async () => {
     setLoading(true);
-    setShowBomberBuddy(false);
+    // setShowBomberBuddy(true);
     const quest = document.getElementById('question').value;
+    console.log("askAssistant is sending account: " + account );
     const temp = await ask(account, aType, quest);
     setResp(temp);
-    setLoading(false);
-    setInputValue(''); // Clear the input after asking
-    setShowBomberBuddy(true);
+    // setLoading(false);
+    setInputValue(''); 
+    setShowBomberBuddy(false);
   };
 
   const handleInputChange = (e) => {
@@ -54,21 +54,22 @@ const BomberBuddy = ({ account, aType }) => {
   return (
     <>
       <div className='bomberbuddy-container'>
-        <h1>
-          <FaRobot className='bomberbuddy-bot' />
-          <Typewriter
-            options={{
-              autoStart: true,
-              loop: true,
-              delay: 50,
-              strings: ["Ask Bomber Buddy!"]
-            }}
-          />
-        </h1>
+      {showBomberBuddy && (
+          <h1>
+            <FaRobot className='bomberbuddy-bot' />
+            <Typewriter
+              options={{
+                autoStart: true,
+                loop: true,
+                delay: 50,
+                strings: ["Ask Bomber Buddy!"]
+              }}
+            />
+          </h1>
+        )}
         <div className='bomberbuddy-message'>
-
           <div className="bomberbuddy-textarea-wrapper">
-            <BsPaperclip className='bomberbuddy-icon-1' />
+            {/* <BsPaperclip className='bomberbuddy-icon-1' /> */}
             <textarea
               id='question'
               ref={textareaRef}
@@ -79,12 +80,10 @@ const BomberBuddy = ({ account, aType }) => {
               onKeyDown={handleKeyDown}
               rows={1} 
             />
-            {!showBomberBuddy && loading && <div>Loading...</div>}
+            {/* {!showBomberBuddy && loading && <div>Loading...</div>} */}
             <FaCircleArrowUp className='bomberbuddy-icon-2' onClick={askAssistant} />
           </div>
-
         </div>
-
         <div className="response" dangerouslySetInnerHTML={{ __html: resp }} />
       </div>
     </>
@@ -92,3 +91,6 @@ const BomberBuddy = ({ account, aType }) => {
 };
 
 export default BomberBuddy;
+
+
+

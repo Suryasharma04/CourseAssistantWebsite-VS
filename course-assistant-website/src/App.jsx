@@ -137,14 +137,14 @@ function MainApp() {
         <Routes>
           <Route path="/" element={<Home onLogin={handleLogin} />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/home" element={<Login token={token} />} />
+          <Route path="/home" element={<Login token={token} onLogin={handleLogin} />} />
           <Route path="/course" element={<ProtectedRoute value={ token }><Course /></ProtectedRoute>}>
 
             {/* <Route path="bomber-buddy" element={<BomberBuddy />} />
             <Route path="discussion" element={<Discussion />} /> */}
           </Route>
           {/* <Route path="/bomber-buddy" element={<ProtectedRoute value={ token }><BomberBuddy /></ProtectedRoute>} /> */}
-          <Route path="/bomber-buddy" element={<BomberBuddy value={token}/>} />
+          <Route path="/bomber-buddy" element={<BomberBuddy account={token} aType="COMP171"/>} />
           <Route path="/help" element= {<Home />} />
           <Route path="/profile" element={<ProtectedRoute value={ token }><Profile /></ProtectedRoute>} />
           <Route path="*" element={<NoMatch />} />

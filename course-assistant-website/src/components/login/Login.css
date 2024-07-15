@@ -17,7 +17,7 @@
   
   .login-form h2 {
     text-align: center;
-    color: #345069;
+    color: #003A70;
     margin-bottom: 10%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
@@ -30,7 +30,7 @@
   .lg-form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #2d4059;
+    color: #003A70;
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
   }
@@ -40,7 +40,7 @@
     padding: 0.75rem;
     border: 1px solid #d3d3d3; 
     border-radius: 1rem;
-    color: #2d4059;
+    color: #003A70;
     background-color: rgb(255, 255, 255);
     font-family: Arial, Helvetica, sans-serif;
   }
@@ -48,7 +48,7 @@
   button {
     width: 50%;
     padding: 0.75rem;
-    background-color: #345069;
+    background-color: #003A70;
     color: white;
     border: none;
     margin: 0 auto; 
@@ -62,7 +62,7 @@
   }
   
   button:hover {
-    background-color: #22354e;
+    background-color: #005BB5;
   }
 
   .already-signup{
@@ -74,7 +74,7 @@
   }
 
   .already-signup span {
-    color: #3d5d79;
+    color: #005BB5;
     cursor: pointer;
     text-decoration: none;
   }
@@ -110,7 +110,7 @@
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  color: #2d4059; /* Adjust icon color */
+  color: #003A70; /* Adjust icon color */
   }
   
   .input-error {
