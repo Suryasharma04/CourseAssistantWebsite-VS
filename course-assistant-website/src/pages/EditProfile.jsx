@@ -103,21 +103,7 @@ const EditProfile = ( {ptoken} ) => {
 
 
   
-  // -------------------------------------------------SETTING THE UPDATED SUCCESSFULY ALERT ------------------------------------------
-  const [updated, setUpdated] = useState(false);
 
-  useEffect(() => {
-    if (updated) {
-      alert('Updated Successfully!');
-      // Optionally reset the `updated` state after showing the alert
-      setUpdated(false);
-    }
-  }, [updated]);
-
-  const handleUpdate = () => {
-    // Logic to update something
-    setUpdated(true);
-  };
 
 
   return (
