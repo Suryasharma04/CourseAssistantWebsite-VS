@@ -78,7 +78,9 @@ function MainApp() {
           <Route path="/bomber-buddy" element={<ProtectedRoute value={ token }><BomberBuddy account={token} aType="COMP171"/></ProtectedRoute>} />
           
           {/* <Route path="/bomber-buddy" element={<BomberBuddy account={token} aType="COMP171"/>} /> */}
-        
+
+          <Route path="/discussion" element= {<ProtectedRoute value={ token }><Discussion /></ProtectedRoute>}  />
+
           <Route path="/help" element= {<Home />} />
           <Route path="/profilecomponent" element={<ProtectedRoute value={ token }><ProfileComponent ptoken = { token} /></ProtectedRoute>} />
           {/* <Route path="/profilecomponent" element={<ProfileComponent />}/> */}
