@@ -1,3 +1,4 @@
+ 
 import React, { useState, useContext } from 'react';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 import { Link, useNavigate, Route } from 'react-router-dom'; // Import Link from react-router-dom
@@ -22,24 +23,7 @@ const Login = ({ onLogin }) => {
   const handleSubmit = (e) => {
     console.log("in hadleSubmit");
   }
-  //   e.preventDefault();
-
-  //   if (!validateEmail(email)) {
-  //     setEmailError('Invalid email format');
-  //     return;
-  //   } else {
-  //     setEmailError('');
-  //   }
-
-  //   onLogin(email); 
-  //   navigate('/home');
-  // };
-
-
-  // const validateEmail = (email) => {
-  //   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  //   return re.test(email);
-  // };
+  
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -87,7 +71,7 @@ const Login = ({ onLogin }) => {
             Forgot password?
           </div>
         </div>
-        <button type="button" onClick={() => auth()}>Login</button>
+        <button type="button" onClick={() => auth(onLogin)}>Login</button>
         <div className="already-signup">
           Don't have an account? <Link to="/signup">Sign Up</Link>
         </div>
