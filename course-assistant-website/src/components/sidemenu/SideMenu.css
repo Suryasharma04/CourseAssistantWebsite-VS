@@ -27,7 +27,7 @@
     transition: 0.3s ease-in-out;
   }
   
-  .nav ul li a:hover {
+  .nav ul li a:hover, .nav ul li a.active {
     background-color: #3BD4C0;
     border-radius: 10px;
     margin: 0.25rem 0.25rem 0.25rem 0.25rem;

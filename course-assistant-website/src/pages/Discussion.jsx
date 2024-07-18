@@ -1,30 +1,16 @@
-// import React from 'react';
-// import SectionHeading from '../components/heading/sectionHeading';
-
-
-// const Discussion = () => {
-//   return (
-//     <>
-//      <SectionHeading title="Discussion" />
-//     </>
-//   );
-// };
-
-// export default Discussion;
-
-
-
 import React from 'react'
 import "./css/Discussion.css"
 import { GiDiscussion } from "react-icons/gi";
 import { BsPaperclip } from "react-icons/bs";
-
+import SectionHeading from '../components/heading/sectionHeading';
 
 const Discussion = () => {
  return (
+  
    <div className='discussion-page-container'>
+    <SectionHeading title="Courses" />
       
-      <h1 className='discussion-page-header'>Discussion Page</h1>
+      {/* <h1 className='discussion-page-header'>Discussion Page</h1> */}
        <div className='discussion-page-icon'>
          <GiDiscussion />       
        </div>
