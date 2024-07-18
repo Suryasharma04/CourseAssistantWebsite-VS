@@ -48,8 +48,8 @@ const SideMenu = ({token, onLogout}) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/profile" activeclassname="active">
-              <IoPerson /> <span className="link-text">Profile</span>
+            <NavLink to="/profilecomponent" activeclassname="active">
+              <IoPerson /> <span className="link-text">Profile </span>
             </NavLink>
           </li>
           <li>
