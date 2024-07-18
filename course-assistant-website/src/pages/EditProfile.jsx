@@ -102,6 +102,8 @@ const EditProfile = ( {ptoken} ) => {
   }, []);
 
 
+
+  
   return (
     <div>
       <h1 className='profile-header'>Edit Profile</h1>
