@@ -3,9 +3,15 @@ import SectionHeading from '../components/heading/sectionHeading';
 import Card from '../components/card/Card';
 import cardData from '../data/CardData.json'; 
 import './css/Course.css';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function Course() {
+  const navigate = useNavigate();
+
+  const handleCardClick = (id) => {
+    navigate(`/course/${id}`);
+  };
+
   return (
     <>
     <SectionHeading title="Courses" />
@@ -19,7 +25,9 @@ export default function Course() {
           title={card.title}
           description={card.description}
           buttontext={card.buttontext}
-          link={card.link} />
+          link={card.link} 
+          onClick={handleCardClick} // Pass the click handler
+          />
       ))}
     </div></>
   )

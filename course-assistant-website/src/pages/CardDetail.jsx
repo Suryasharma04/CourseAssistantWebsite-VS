@@ -5,8 +5,8 @@ import CourseHeading from '../components/heading/courseHeading';
 import SubsectionHeading from '../components/heading/subsectionHeading';
 
 const CardDetail = () => {
-    const { id } = useParams();
-    const card = cardData.find((item) => item.id.toString() === id);
+    const { courseId } = useParams();
+    const card = cardData.find((item) => item.id.toString() === courseId);
 
     if (!card) {
         return <h2>Card not found</h2>;
