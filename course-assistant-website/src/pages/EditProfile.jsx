@@ -103,7 +103,19 @@ const EditProfile = ( {ptoken} ) => {
 
 
 
-  
+  const [updated, setUpdated] = useState(false);
+
+  useEffect(() => {
+    if (updated) {
+      alert('Updated Successfully!');
+      setUpdated(false);
+    }
+  }, [updated]);
+
+  const handleUpdate = () => {
+    setUpdated(true);
+  };
+
   return (
     <div>
       <h1 className='profile-header'>Edit Profile</h1>
@@ -168,11 +180,10 @@ const EditProfile = ( {ptoken} ) => {
         {invalidL && (<p className="bad-stuff"> Bad LinkedIn Page entered. </p>)}
 
 
-        <button className="edit-profile-save-button" type="button" onClick={update}>
+        <button className="edit-profile-save-button" type="button" onClick={handleUpdate}>
           Update Profile
         </button>
-        {/* {updated && (<p> Updated Successfully!. </p>)} */}
-
+        {updated && <p>Updated Successfully!</p>}
     </div>
      
     </div>
