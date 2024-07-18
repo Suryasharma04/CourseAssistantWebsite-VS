@@ -102,7 +102,7 @@ const EditProfile = ( {ptoken} ) => {
   }, []);
 
 
-
+  // -------------------------------------------------SETTING THE UPDATED SUCCESSFULY ALERT ------------------------------------------
   const [updated, setUpdated] = useState(false);
 
   useEffect(() => {
@@ -115,6 +115,14 @@ const EditProfile = ( {ptoken} ) => {
   const handleUpdate = () => {
     setUpdated(true);
   };
+
+    // -----------------------------------------THIRD FUNCTION CALLING update and handleUpdate ------------------------------------------
+
+    const thirdFunction = () =>{
+      handleUpdate();
+      update();
+    }
+
 
   return (
     <div>
@@ -180,7 +188,7 @@ const EditProfile = ( {ptoken} ) => {
         {invalidL && (<p className="bad-stuff"> Bad LinkedIn Page entered. </p>)}
 
 
-        <button className="edit-profile-save-button" type="button" onClick={handleUpdate}>
+        <button className="edit-profile-save-button" type="button" onClick={thirdFunction}>
           Update Profile
         </button>
         {updated && <p>Updated Successfully!</p>}
