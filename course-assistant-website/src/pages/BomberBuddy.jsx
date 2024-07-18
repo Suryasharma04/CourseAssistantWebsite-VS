@@ -114,7 +114,7 @@ const BomberBuddy = ({ account, aType }) => {
             ) : (
               <FaCircleArrowUp className='bomberbuddy-icon-2' onClick={askAssistant} />
             )}
-            {/* <FaCircleArrowUp className='bomberbuddy-icon-2' onClick={askAssistant} /> */}
+            
 
           </div>
         </div>
