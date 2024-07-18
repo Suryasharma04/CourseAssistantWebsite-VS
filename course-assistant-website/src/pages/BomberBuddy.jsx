@@ -9,6 +9,8 @@ import { FaRobot, FaCircleArrowUp } from "react-icons/fa6";
 import Typewriter from 'typewriter-effect';
 import { BsPaperclip } from "react-icons/bs";
 import ask from "../doAsk";
+import PacmanLoader from "react-spinners/PacmanLoader";
+import BeatLoader from 'react-spinners/BeatLoader';
 
 const BomberBuddy = ({ account, aType }) => {
   const [resp, setResp] = useState(null);
@@ -24,9 +26,15 @@ const BomberBuddy = ({ account, aType }) => {
     console.log("askAssistant is sending account: " + account );
     const temp = await ask(account, aType, quest);
     setResp(temp);
-    // setLoading(false);
+    setLoading(false);
     setInputValue(''); 
     setShowBomberBuddy(false);
+  };
+
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
   };
 
   const handleInputChange = (e) => {
@@ -57,14 +65,26 @@ const BomberBuddy = ({ account, aType }) => {
       {showBomberBuddy && (
           <h1>
             <FaRobot className='bomberbuddy-bot' />
-            <Typewriter
-              options={{
-                autoStart: true,
-                loop: true,
-                delay: 50,
-                strings: ["Ask Bomber Buddy!"]
-              }}
-            />
+            {!loading && (
+              <Typewriter
+                options={{
+                  autoStart: true,
+                  loop: true,
+                  delay: 50,
+                  strings: ["Ask Bomber Buddy!"]
+                }}
+              />
+            )}
+
+                <BeatLoader   
+                color={"#003A70"}
+                loading={loading}
+                cssOverride={override}
+                size={15}
+                aria-label="Loading!"
+                data-testid="loader"
+              />
+
           </h1>
         )}
         <div className='bomberbuddy-message'>
@@ -81,10 +101,39 @@ const BomberBuddy = ({ account, aType }) => {
               rows={1} 
             />
             {/* {!showBomberBuddy && loading && <div>Loading...</div>} */}
-            <FaCircleArrowUp className='bomberbuddy-icon-2' onClick={askAssistant} />
+            {loading ? (
+              <BeatLoader   
+              color={"gray"}
+              loading={loading}
+              cssOverride={override}
+              size={8}
+              aria-label="Loading!"
+              data-testid="loader"
+              className='bomberbuddy-icon-2'
+            />
+            ) : (
+              <FaCircleArrowUp className='bomberbuddy-icon-2' onClick={askAssistant} />
+            )}
+            
+
           </div>
         </div>
-        <div className="response" dangerouslySetInnerHTML={{ __html: resp }} />
+        {/* <div className="response" dangerouslySetInnerHTML={{ __html: resp }} /> */}
+
+        
+{/* 
+          {resp && (
+          <div className='bomberbuddy-response-bubble' dangerouslySetInnerHTML={{ __html: resp }} />
+            
+        )} */}
+
+        {resp && (
+          <div className='bomberbuddy-response-container'>
+            {/* <div className='bomberbuddy-response-header'>Response:</div> */}
+            <div className='bomberbuddy-response-bubble' dangerouslySetInnerHTML={{ __html: resp }} />
+          </div>
+        )}
+
       </div>
     </>
   );

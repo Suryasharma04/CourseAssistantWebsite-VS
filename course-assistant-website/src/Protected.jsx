@@ -3,11 +3,11 @@ import { AuthContext } from './authContext';
 
 //import { useContext } from "react";
 
-const ProtectedRoute = ({ value, children }) => {
+const ProtectedRoute = ({ value, onLogin, children }) => {
   //const token  = useContext(AuthContext);
 
   if (!value) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/login" onLogin = {onLogin} replace />;
   }
 
   return children;
