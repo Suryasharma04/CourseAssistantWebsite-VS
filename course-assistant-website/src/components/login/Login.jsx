@@ -35,7 +35,7 @@ const Login = ({ onLogin }) => {
         <h2>Login</h2>
 
         <div className="lg-form-group">
-          <label htmlFor="account">Email</label>
+          <label htmlFor="account">Username</label>
           <div className="email-container">
             <input
               // type="email"
@@ -43,7 +43,7 @@ const Login = ({ onLogin }) => {
               name="account"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
+              placeholder="Enter your username"
               required
             />
             {emailError && <p className="error-message">{emailError}</p>}

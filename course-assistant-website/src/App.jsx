@@ -7,19 +7,14 @@ import Home from './pages/Home';
 import Course from './pages/Course';
 import BomberBuddy from './pages/BomberBuddy';
 import Login from './components/login/Login';
-// import Navigation from "./Navigation";
-
 import Discussion from './pages/Discussion';
 import Profile from './pages/Profile';
-// import CardDetail from './pages/CardDetail';
+import CardDetail from './pages/CardDetail';
 import makeAuth from "./doAuth";
 import { AuthContext, AuthProvider } from "./authContext";
 import ProtectedRoute from "./Protected";
 import ProfileComponent from './pages/ProfileComponent';
 import EditProfile from './pages/EditProfile';
-
-
-
 
 export default function App() {
   return (
@@ -70,11 +65,20 @@ function MainApp() {
         <Routes>
           <Route path="/" element={<Home onLogin={handleLogin} />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/home" element={<Login onLogin={handleLogin} token={token} />} />
-          <Route path="/course" element={<ProtectedRoute value={ token }><Course /></ProtectedRoute>}></Route>
-            {/* <Route path="bomber-buddy" element={<BomberBuddy />} />
-            <Route path="discussion" element={<Discussion />} /> */}
-          <Route path="/bomber-buddy" element={<ProtectedRoute value={ token } onLogin={handleLogin}><BomberBuddy /></ProtectedRoute>} />
+
+          {/* <Route path="/home" element={<Login token={token} onLogin={handleLogin} />} /> */}
+
+          <Route path="/home" element={<ProtectedRoute value={ token }><Home /></ProtectedRoute>} />
+
+          <Route path="/course" element={<ProtectedRoute value={ token }><Course /></ProtectedRoute>}>       
+          </Route>
+
+          <Route path="/course/:courseId" element={<ProtectedRoute value={ token }><CardDetail /></ProtectedRoute>} />
+
+          <Route path="/bomber-buddy" element={<ProtectedRoute value={ token }><BomberBuddy account={token} aType="COMP171"/></ProtectedRoute>} />
+          
+          {/* <Route path="/bomber-buddy" element={<BomberBuddy account={token} aType="COMP171"/>} /> */}
+        
           <Route path="/help" element= {<Home />} />
           <Route path="/profilecomponent" element={<ProtectedRoute value={ token }><ProfileComponent ptoken = { token} /></ProtectedRoute>} />
           {/* <Route path="/profilecomponent" element={<ProfileComponent />}/> */}

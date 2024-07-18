@@ -1,39 +1,35 @@
 [
     {
       "id":1,
-      "imgSrc": "https://picsum.photos/300/200",
+      "imgSrc": "/images/card1.jpg",
       "imgAlt": "Card Image 1",
       "title": "Intro to Web Development",
       "description": "COMP10500",
-      "buttontext": "Click Here",
-      "link": "/card/1"
+      "link": "/course/1"
     },
     {
       "id":2,
-      "imgSrc": "https://picsum.photos/300/200",
+      "imgSrc": "/images/card2.jpg",
       "imgAlt": "Human Computer Interaction",
       "title": "Human Computer Interaction",
       "description": "COMP32500",
-      "buttontext": "Learn More",
-      "link": "/card/2"
+      "link": "/course/2"
     },
     {
       "id":3,
-      "imgSrc": "https://picsum.photos/300/200",
+      "imgSrc": "/images/card3.jpg",
       "imgAlt": "Computer Networks and Security",
       "title": "Computer Networks and Security",
       "description": "COMP36500",
-      "buttontext": "Buy Now",
-      "link": "/card/3"
+      "link": "/course/3"
     },
     {
       "id":4,
-      "imgSrc": "https://picsum.photos/300/200",
+      "imgSrc": "/images/card4.jpg",
       "imgAlt": "Introduction to Computer Organization and Systems",
       "title": "Introduction to Computer Organization and Systems",
       "description": "COMP21000",
-      "buttontext": "Buy Now",
-      "link": "/card/4"
+      "link": "/course/4"
     }
 ]
   

@@ -9,9 +9,10 @@ const Card = ({
     title,
     description,
     link,
+    onClick,
 }) => {
   return (  
-    <Link to={link} className="link-card">
+    <Link to={link} className="link-card" onClick={() => onClick(id)}>
     <div className="card-container" data-id={id}> 
     <img src={imgSrc} alt={imgAlt} className="card-img"/>
     <h2 className="card-title">{title}</h2>

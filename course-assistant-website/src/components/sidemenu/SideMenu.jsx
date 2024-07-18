@@ -11,11 +11,20 @@ const SideMenu = ({token, onLogout}) => {
     setCollapsed(!collapsed);
   };
 
+  const handleLogoutClick = (e) => {
+    e.preventDefault();
+    const userConfirmed = window.confirm("Are you sure you want to logout?");
+    if (userConfirmed) {
+      onLogout();
+      history.push('/login');
+    }
+  };
+
   return (
     <div className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
-      <button onClick={handleToggleSidebar} className="toggle-btn">
-        {collapsed ? <IoChevronForward /> : <IoChevronBack />}
-      </button>
+       <div onClick={handleToggleSidebar} className={`toggle-btn ${collapsed ? 'collapsed' : ''}`}>
+        {collapsed ? <IoChevronForward className='icon' /> : <IoChevronBack className='icon'/>}
+      </div> 
       <nav className="nav">
         <ul>
           <li>
@@ -49,10 +58,9 @@ const SideMenu = ({token, onLogout}) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/logout" activeclassname="active">
+            {token && (<NavLink to="/logout" activeclassname="active" onClick={handleLogoutClick}>
               <IoArrowBackCircle /> <span className="link-text">Logout</span>
-    
-            </NavLink>
+            </NavLink>)}
           </li>
         </ul>
       </nav>
