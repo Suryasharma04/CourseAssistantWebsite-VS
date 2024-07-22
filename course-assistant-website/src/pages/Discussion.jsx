@@ -8,7 +8,7 @@ const Discussion = () => {
  return (
   
    <div className='discussion-page-container'>
-    <SectionHeading title="Courses" />
+    <SectionHeading title="Discussion" />
       
       {/* <h1 className='discussion-page-header'>Discussion Page</h1> */}
        <div className='discussion-page-icon'>

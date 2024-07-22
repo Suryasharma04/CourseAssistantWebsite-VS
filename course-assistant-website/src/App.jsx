@@ -1,7 +1,6 @@
-
 import {React, useState, useContext} from 'react';
 import './App.css';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, Navigate} from 'react-router-dom';
 import Sidebar from './components/sidemenu/SideMenu';
 import Home from './pages/Home';
 import Course from './pages/Course';
@@ -15,6 +14,7 @@ import { AuthContext, AuthProvider } from "./authContext";
 import ProtectedRoute from "./Protected";
 import ProfileComponent from './pages/ProfileComponent';
 import EditProfile from './pages/EditProfile';
+import Help from './pages/Help';
 
 export default function App() {
   return (
@@ -50,12 +50,17 @@ function MainApp() {
 
   const handleLogout = () => {
     setToken(null);
-    navigate('/');
+    navigate('/login');
   };
 
   return (
     <div className="app-container">
-      <Sidebar token={token} onLogout={handleLogout} />
+      {/* <Sidebar token={token} onLogout={handleLogout} /> */}
+      {token && <Sidebar token={token} onLogout={handleLogout} />}
+
+      <Routes>
+      <Route path="/login" element={<Login onLogin={handleLogin} />} />
+      </Routes>
      
       <Routes>
             <Route  path="/editprofile" element={<EditProfile  ptoken = {token} />} />
@@ -63,15 +68,16 @@ function MainApp() {
 
       <div className="main-content">
         <Routes>
-          <Route path="/" element={<Home onLogin={handleLogin} />} />
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/" element={<Navigate to="/login" />} />
+
+          {/* <Route path="/" element={<Home onLogin={handleLogin} />} /> */}
+          {/* <Route path="/login" element={<Login onLogin={handleLogin} />} /> */}
 
           {/* <Route path="/home" element={<Login token={token} onLogin={handleLogin} />} /> */}
 
           <Route path="/home" element={<ProtectedRoute value={ token }><Home /></ProtectedRoute>} />
 
-          <Route path="/course" element={<ProtectedRoute value={ token }><Course /></ProtectedRoute>}>       
-          </Route>
+          <Route path="/course" element={<ProtectedRoute value={ token }><Course /></ProtectedRoute>} />       
 
           <Route path="/course/:courseId" element={<ProtectedRoute value={ token }><CardDetail /></ProtectedRoute>} />
 
@@ -81,7 +87,7 @@ function MainApp() {
 
           <Route path="/discussion" element= {<ProtectedRoute value={ token }><Discussion /></ProtectedRoute>}  />
 
-          <Route path="/help" element= {<Home />} />
+          <Route path="/help" element= {<Help />} />
           <Route path="/profilecomponent" element={<ProtectedRoute value={ token }><ProfileComponent ptoken = { token} /></ProtectedRoute>} />
           {/* <Route path="/profilecomponent" element={<ProfileComponent />}/> */}
 
@@ -95,7 +101,7 @@ function MainApp() {
 // Page not found
 const NoMatch = () => (
   <>
-    <h1>404</h1>
-    Page not found.
+    {/* <h1>404</h1>
+    Page not found. */}
   </>
 );
